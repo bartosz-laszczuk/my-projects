@@ -1,0 +1,46 @@
+@use '../variables/colors.scss';
+
+.app-table {
+  table-layout: fixed;
+
+  &__header {
+    text-align: left;
+    &:before {
+      content: '┏━';
+      margin-left: -0.5rem;
+    }
+  }
+
+  &__row {
+    &:hover,
+    &:focus {
+      background: colors.$primary;
+      color: colors.$primary-dark;
+      cursor: pointer;
+    }
+  }
+
+  &__cell {
+    height: 2.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 0.5rem;
+    *:first-child {
+      margin-left: 1rem;
+    }
+    &:not(:first-child)::before {
+      content: ':';
+    }
+  }
+
+  &__footer {
+    td {
+      &:before {
+        content: '┗━';
+        display: block;
+        margin: -0.5rem 0 0 -0.5rem;
+      }
+    }
+  }
+}

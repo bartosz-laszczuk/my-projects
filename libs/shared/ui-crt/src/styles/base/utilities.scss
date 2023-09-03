@@ -1,0 +1,29 @@
+.w-100 {
+  width: 100%;
+}
+
+.inline-draw {
+  font-family: "Lucida Console";
+  line-height: 14px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.c-pointer {
+  cursor: pointer !important;
+}
+
+.c-default {
+  cursor: default !important;
+}
+
+[disabled="true"] {
+  pointer-events: none;
+}
+
+.section-header {
+  &:before {
+    content: "┏━";
+    margin-left: -0.5rem;
+  }
+}

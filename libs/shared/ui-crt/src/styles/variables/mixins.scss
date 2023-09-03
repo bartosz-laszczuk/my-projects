@@ -1,0 +1,41 @@
+@use './colors.scss';
+@use './fonts.scss';
+
+@mixin shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@mixin card {
+  padding: 32px;
+  background: colors.$background;
+  border-radius: 8px;
+  @include shadow;
+}
+
+@mixin baseFontSettings {
+  font-family: fonts.$base-font-family !important;
+  font-size: fonts.$base-font-size !important;
+  line-height: fonts.$base-line-height !important;
+}
+
+@mixin fill($top: 0, $left: 0, $right: 0, $bottom: 0) {
+  position: absolute;
+  left: $left;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+}
+
+// 1em = 16px
+@mixin respond($breakpoint) {
+  @if $breakpoint == tab-port {
+    @media (max-width: 74em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 80em) {
+      @content;
+    }
+  }
+}

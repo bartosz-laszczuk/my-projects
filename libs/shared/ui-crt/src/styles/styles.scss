@@ -1,0 +1,21 @@
+@use './base';
+@use './elements';
+@use './layout';
+@use './variables/colors.scss';
+@use './variables/fonts';
+
+html {
+  height: 100%;
+  // 1rem = 10px by default
+  font-size: 62.5%;
+}
+body {
+  height: 100%;
+  width: 100%;
+  background: colors.$background;
+  color: colors.$on-background;
+  font-family: fonts.$base-font-family;
+  font-size: fonts.$base-font-size;
+  line-height: fonts.$base-line-height;
+  text-shadow: 0 0 5px #c8c8c8;
+}
