@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   Output,
   EventEmitter,
@@ -8,35 +7,33 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-
-import {
-  ControlItem,
-  Value,
-} from '@question-randomizer/app/core/_models/frontend';
+import { CommonModule } from '@angular/common';
+import { ControlItem, Value } from '../../models/control-item.model';
 
 @Component({
-  selector: 'app-checkboxes',
-  templateUrl: './checkboxes.component.html',
-  styleUrls: ['./checkboxes.component.scss'],
+  selector: 'my-projects-shared-ui-crt-controls-checkboxes',
+  templateUrl: './shared-ui-crt-controls-checkboxes.component.html',
+  styleUrls: ['./shared-ui-crt-controls-checkboxes.component.scss'],
+  standalone: true,
+  imports: [CommonModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CheckboxesComponent),
+      useExisting: forwardRef(() => SharedUiCrtControlsCheckboxesComponent),
       multi: true,
     },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxesComponent implements OnInit, ControlValueAccessor {
+export class SharedUiCrtControlsCheckboxesComponent
+  implements ControlValueAccessor
+{
   @Input() items: ControlItem[] | undefined;
-  @Input() value: Value[];
+  @Input() value: Value[] | undefined;
   @Output() changed = new EventEmitter<Value[]>();
-  isDisabled: boolean;
+  isDisabled = false;
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private propagateChange: any = () => {};
 
   writeValue(value: Value[]): void {
@@ -47,13 +44,15 @@ export class CheckboxesComponent implements OnInit, ControlValueAccessor {
     this.propagateChange = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   registerOnTouched(fn: any): void {}
 
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
 
-  onChanged(value: Value, checked: boolean): void {
+  onChanged(value: Value, event: Event): void {
+    const checked = (event.target as HTMLInputElement).checked;
     const selected = this.getSelected(value, checked);
 
     this.value = selected;
@@ -76,7 +75,7 @@ export class CheckboxesComponent implements OnInit, ControlValueAccessor {
     return selected.length ? selected : [];
   }
 
-  isChecked(value: Value): boolean {
+  isChecked(value: Value): boolean | undefined {
     return this.value && this.value.includes(value);
   }
 }

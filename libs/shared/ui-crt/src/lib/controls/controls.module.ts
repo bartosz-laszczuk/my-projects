@@ -1,36 +1,25 @@
-// import { NgModule } from '@angular/core';
-// import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { SharedUiCrtControlsSelectComponent } from './select/shared-ui-crt-controls-select.component';
+import { SharedUiCrtControlsInputComponent } from './input/shared-ui-crt-controls-input.component';
+import { SharedUiCrtControlsFormFieldComponent } from './form-field/shared-ui-crt-controls-form-field.component';
+import { SharedUiCrtControlsPasswordComponent } from './password/shared-ui-crt-controls-password.component';
+import { SharedUiCrtControlsCheckboxesComponent } from './checkboxes/shared-ui-crt-controls-checkboxes.component';
 
-// import { InputModule } from './input/input.module';
-// import { FormFieldModule } from './form-field/form-field.module';
-// import { PasswordModule } from './password/password.module';
-// import { CheckboxesModule } from './checkboxes/checkboxes.module';
-// import { RadiosModule } from './radios/radios.module';
+const controls = [
+  SharedUiCrtControlsInputComponent,
+  SharedUiCrtControlsFormFieldComponent,
+  SharedUiCrtControlsPasswordComponent,
+  SharedUiCrtControlsSelectComponent,
+  SharedUiCrtControlsCheckboxesComponent,
+  //   RadiosModule,
+  //   DateModule,
+  //   DateRangeModule,
+  //   AutocompleteModule,
+];
 
-// @NgModule({
-//   declarations: [],
-//   imports: [
-//     CommonModule,
-//     InputModule,
-//     FormFieldModule,
-//     PasswordModule,
-//     // SelectModule,
-//     CheckboxesModule,
-//     RadiosModule,
-//     // DateModule,
-//     // DateRangeModule,
-//     // AutocompleteModule,
-//   ],
-//   exports: [
-//     InputModule,
-//     FormFieldModule,
-//     PasswordModule,
-//     // SelectModule,
-//     CheckboxesModule,
-//     RadiosModule,
-//     // DateModule,
-//     // DateRangeModule,
-//     // AutocompleteModule,
-//   ],
-// })
-// export class ControlsModule {}
+@NgModule({
+  declarations: [],
+  imports: [...controls],
+  exports: [...controls],
+})
+export class ControlsModule {}

@@ -11,7 +11,7 @@
     </label>
     <ng-content></ng-content>
   </div>
-  <div *ngIf="!!control" class="form-field__error">
+  <div *ngIf="!!control && !isValidationHidden" class="form-field__error">
     <ng-container *ngIf="control && errorKey" [ngSwitch]="errorKey">
       <span *ngSwitchCase="'min'"
         >Minimum {{ control.errors![errorKey].min }}</span
@@ -36,3 +36,4 @@
     </ng-container>
   </div>
 </div>
+<ng-container *ngIf="control?.statusChanges | async"></ng-container>

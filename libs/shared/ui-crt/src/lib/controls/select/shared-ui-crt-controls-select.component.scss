@@ -1,0 +1,26 @@
+@use 'colors';
+
+.select {
+  line-height: 36px;
+  // padding: 0 15px 0 15px;
+
+  &_disabled {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+}
+select {
+  cursor: pointer;
+  direction: rtl;
+  background: transparent;
+  border: none;
+}
+select option {
+  direction: ltr;
+  background-color: colors.$primary-dark;
+}
+:host-context(.form-field_error) {
+  .select {
+    border: 1px solid colors.$error;
+  }
+}

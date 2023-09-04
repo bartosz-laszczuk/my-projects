@@ -1,11 +1,11 @@
-@import "colors";
+@import 'colors';
 
 .checkbox {
   display: block;
   position: relative;
-  text-indent: 30px;
-  margin: 8px 0;
-  padding: 0 20px 0 0;
+  // text-indent: 30px;
+  // margin: 8px 0;
+  // padding: 0 20px 0 0;
   color: $primary-dark;
   transition: 0.08s;
 
@@ -53,7 +53,7 @@
     background-color: #eee;
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       display: none;
     }
