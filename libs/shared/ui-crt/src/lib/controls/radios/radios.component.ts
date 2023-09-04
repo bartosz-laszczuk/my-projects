@@ -1,64 +1,64 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  forwardRef,
-} from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import {
-  ControlItem,
-  Value,
-} from '@question-randomizer/app/core/_models/frontend';
+// import {
+//   Component,
+//   OnInit,
+//   Input,
+//   Output,
+//   EventEmitter,
+//   forwardRef,
+// } from '@angular/core';
+// import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+// import {
+//   ControlItem,
+//   Value,
+// } from '@question-randomizer/app/core/_models/frontend';
 
-@Component({
-  selector: 'app-radios',
-  templateUrl: './radios.component.html',
-  styleUrls: ['./radios.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => RadiosComponent),
-      multi: true,
-    },
-  ],
-})
-export class RadiosComponent implements OnInit, ControlValueAccessor {
-  @Input() items: ControlItem[];
+// @Component({
+//   selector: 'app-radios',
+//   templateUrl: './radios.component.html',
+//   styleUrls: ['./radios.component.scss'],
+//   providers: [
+//     {
+//       provide: NG_VALUE_ACCESSOR,
+//       useExisting: forwardRef(() => RadiosComponent),
+//       multi: true,
+//     },
+//   ],
+// })
+// export class RadiosComponent implements OnInit, ControlValueAccessor {
+//   @Input() items: ControlItem[];
 
-  @Output() changed = new EventEmitter<Value>();
+//   @Output() changed = new EventEmitter<Value>();
 
-  value: Value;
-  isDisabled: boolean;
+//   value: Value;
+//   isDisabled: boolean;
 
-  constructor() {}
+//   constructor() {}
 
-  ngOnInit(): void {}
+//   ngOnInit(): void {}
 
-  private propagateChange: any = () => {};
+//   private propagateChange: any = () => {};
 
-  writeValue(value: Value): void {
-    this.value = value;
-  }
+//   writeValue(value: Value): void {
+//     this.value = value;
+//   }
 
-  registerOnChange(fn: any): void {
-    this.propagateChange = fn;
-  }
+//   registerOnChange(fn: any): void {
+//     this.propagateChange = fn;
+//   }
 
-  registerOnTouched(fn: any): void {}
+//   registerOnTouched(fn: any): void {}
 
-  setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
-  }
+//   setDisabledState(isDisabled: boolean): void {
+//     this.isDisabled = isDisabled;
+//   }
 
-  onChanged(value: Value): void {
-    this.value = value;
-    this.propagateChange(value);
-    this.changed.emit(value);
-  }
+//   onChanged(value: Value): void {
+//     this.value = value;
+//     this.propagateChange(value);
+//     this.changed.emit(value);
+//   }
 
-  isChecked(value: Value): boolean {
-    return this.value === value;
-  }
-}
+//   isChecked(value: Value): boolean {
+//     return this.value === value;
+//   }
+// }

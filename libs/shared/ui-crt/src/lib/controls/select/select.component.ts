@@ -1,71 +1,67 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  forwardRef,
-} from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+// import {
+//   Component,
+//   OnInit,
+//   Input,
+//   Output,
+//   EventEmitter,
+//   forwardRef,
+// } from '@angular/core';
+// import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
-import { MatSelectChange } from '@angular/material/select';
-import {
-  ControlItem,
-  Value,
-} from '@question-randomizer/app/core/_models/frontend';
+// import { MatSelectChange } from '@angular/material/select';
+// import {
+//   ControlItem,
+//   Value,
+// } from '@question-randomizer/app/core/_models/frontend';
 
-@Component({
-  selector: 'app-select',
-  templateUrl: './select.component.html',
-  styleUrls: ['./select.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectComponent),
-      multi: true,
-    },
-  ],
-})
-export class SelectComponent implements OnInit, ControlValueAccessor {
-  @Input() items: ControlItem[] | undefined;
-  @Input() placeholder: string;
-  @Output() changed = new EventEmitter<Value>();
+// @Component({
+//   selector: 'app-select',
+//   templateUrl: './select.component.html',
+//   styleUrls: ['./select.component.scss'],
+//   providers: [
+//     {
+//       provide: NG_VALUE_ACCESSOR,
+//       useExisting: forwardRef(() => SelectComponent),
+//       multi: true,
+//     },
+//   ],
+// })
+// export class SelectComponent implements ControlValueAccessor {
+//   @Input() items: ControlItem[] | undefined;
+//   @Input() placeholder: string;
+//   @Output() changed = new EventEmitter<Value>();
 
-  value: Value;
-  isDisabled: boolean;
+//   value: Value;
+//   isDisabled = false;
 
-  constructor() {}
+//   private propagateChange: any = () => {};
+//   private propagateTouched: any = () => {};
 
-  ngOnInit(): void {}
+//   writeValue(value: Value): void {
+//     this.value = value;
+//   }
 
-  private propagateChange: any = () => {};
-  private propagateTouched: any = () => {};
+//   registerOnChange(fn: any): void {
+//     this.propagateChange = fn;
+//   }
 
-  writeValue(value: Value): void {
-    this.value = value;
-  }
+//   registerOnTouched(fn: any): void {
+//     this.propagateTouched = fn;
+//   }
 
-  registerOnChange(fn: any): void {
-    this.propagateChange = fn;
-  }
+//   setDisabledState(isDisabled: boolean): void {
+//     this.isDisabled = isDisabled;
+//   }
 
-  registerOnTouched(fn: any): void {
-    this.propagateTouched = fn;
-  }
+//   onChanged(event: MatSelectChange): void {
+//     const value = event.value ? event.value : null;
 
-  setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
-  }
+//     this.value = value;
+//     this.propagateChange(value);
+//     this.changed.emit(value);
+//   }
 
-  onChanged(event: MatSelectChange): void {
-    const value = event.value ? event.value : null;
-
-    this.value = value;
-    this.propagateChange(value);
-    this.changed.emit(value);
-  }
-
-  onBlur(): void {
-    this.propagateTouched();
-  }
-}
+//   onBlur(): void {
+//     this.propagateTouched();
+//   }
+// }

@@ -3,7 +3,7 @@
 }
 
 .inline-draw {
-  font-family: "Lucida Console";
+  font-family: 'Lucida Console';
   line-height: 14px;
   font-size: 14px;
   display: inline-block;
@@ -17,13 +17,13 @@
   cursor: default !important;
 }
 
-[disabled="true"] {
+[disabled='true'] {
   pointer-events: none;
 }
 
 .section-header {
   &:before {
-    content: "┏━";
+    content: '┏━';
     margin-left: -0.5rem;
   }
 }
