@@ -9,21 +9,21 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        loadChildren: () =>
-          import('./login/login.module').then((m) => m.LoginModule),
+        loadComponent: () =>
+          import('./login/login.component').then((m) => m.LoginComponent),
         canActivate: [UnauthGuard],
       },
       {
         path: 'registration',
-        loadChildren: () =>
-          import('./registration/registration.module').then(
-            (m) => m.RegistrationModule
+        loadComponent: () =>
+          import('./registration/registration.component').then(
+            (m) => m.RegistrationComponent
           ),
         canActivate: [UnauthGuard],
       },
       {
         path: 'email-confirm',
-        loadChildren: () =>
+        loadComponent: () =>
           import('./email-confirm/email-confirm.component').then(
             (m) => m.EmailConfirmComponent
           ),

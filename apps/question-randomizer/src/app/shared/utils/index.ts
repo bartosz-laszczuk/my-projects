@@ -5,4 +5,3 @@ export * from './data';
 export * from './file';
 export * from './number';
 export * from './array';
-export * from './sort';

@@ -1,0 +1,38 @@
+<my-projects-logo *ngIf="breakpoint" [breakpoint]="breakpoint">
+  <nav class="navigation">
+    <ng-container *ngIf="isAuthorized === false">
+      <a
+        class="app-a"
+        [routerLink]="['auth', 'login']"
+        routerLinkActive="app-a_active"
+        >Log in</a
+      >
+      <a
+        class="app-a"
+        [routerLink]="['auth', 'registration']"
+        routerLinkActive="app-a_active"
+        >Registration</a
+      >
+      <a class="app-a" [routerLink]="['demo']" routerLinkActive="app-a_active"
+        >Demo</a
+      >
+    </ng-container>
+    <ng-container *ngIf="isAuthorized === true">
+      <a
+        class="app-a"
+        routerLinkActive="app-a_active"
+        [routerLink]="['./randomization']"
+        >Randomization</a
+      >
+      <a
+        class="app-a"
+        routerLinkActive="app-a_active"
+        [routerLink]="['./questions']"
+        >Questions</a
+      >
+      <a class="app-a" routerLinkActive="app-a_active" (click)="onSignOut()"
+        >Sign Out</a
+      >
+    </ng-container>
+  </nav>
+</my-projects-logo>

@@ -1,5 +1,5 @@
-import { Dictionaries } from '@my-projects-nx/question-randomizer/shared/util/models/frontend';
 import { createAction, props } from '@ngrx/store';
+import { Dictionaries } from '../../_models/frontend/dictionaries.model';
 
 export const loadDictionaries = createAction('[App] Load Dictionaries');
 

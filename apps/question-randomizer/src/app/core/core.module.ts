@@ -12,6 +12,13 @@ import { environment } from '../../environments/environment';
 import { CommonStoreModule } from './_store/common/common-store.module';
 import { DictionariesStoreModule } from './_store/dictionaries/dictionaries-store.module';
 import { AuthStoreModule } from '../auth/_store/auth-store.module';
+import { SharedUiCrtLayoutDisplayComponent } from '@my-projects/shared/ui-crt';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { HeaderComponent } from './_components/header/header.component';
+import { LogoComponent } from './_components/logo/logo.component';
 
 @NgModule({
   declarations: [],
@@ -37,10 +44,10 @@ import { AuthStoreModule } from '../auth/_store/auth-store.module';
     // StoreRouterConnectingModule.forRoot(),
     // SharedUiCrtLayoutComponent,
     // QuestionRandomizerShellUiHeaderComponent,
-    // AngularFireModule.initializeApp(environment.firebase.config),
-    // AngularFireAuthModule,
-    // AngularFireStorageModule,
-    // AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase.config),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule,
     AuthStoreModule,
     CommonStoreModule,
     DictionariesStoreModule,
@@ -51,7 +58,15 @@ import { AuthStoreModule } from '../auth/_store/auth-store.module';
     //   registrationStrategy: 'registerWhenStable:30000',
     // }),
     DialogModule,
+    HeaderComponent,
+    LogoComponent,
+    SharedUiCrtLayoutDisplayComponent,
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule,
+    SharedUiCrtLayoutDisplayComponent,
+    BrowserModule,
+    HeaderComponent,
+  ],
 })
 export class CoreModule {}

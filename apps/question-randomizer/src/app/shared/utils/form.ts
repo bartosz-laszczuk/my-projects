@@ -3,10 +3,7 @@ import {
   UntypedFormArray,
   UntypedFormGroup,
 } from '@angular/forms';
-import {
-  ControlItem,
-  DictionaryItem,
-} from '@my-projects-nx/question-randomizer/shared/util/models/frontend';
+import { ControlItem, DictionaryItem } from '../../core/_models/frontend';
 
 export const markFormGroupTouched = (formGroup: any) => {
   (Object as any).values(formGroup.controls).forEach((control: any) => {

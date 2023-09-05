@@ -1,4 +1,14 @@
-<my-projects-shared-ui-crt-layout>
-  <my-projects-nx-welcome></my-projects-nx-welcome>
-  <router-outlet></router-outlet>
-</my-projects-shared-ui-crt-layout>
+<my-projects-shared-ui-crt-layout-display>
+  <div class="app-page">
+    <my-projects-header
+      [isAuthorized]="(isAuthorized$ | async)!"
+      [user]="user$ | async"
+      (signOut)="onSignOut()"
+      class="app-page__header"
+      [breakpoint]="breakpoint$ | async"
+    ></my-projects-header>
+    <content [hidden]="isDialogVisible$ | async">
+      <router-outlet></router-outlet>
+    </content>
+  </div>
+</my-projects-shared-ui-crt-layout-display>

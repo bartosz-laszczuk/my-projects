@@ -1,4 +1,3 @@
-import { User } from '@my-projects-nx/question-randomizer/shared/util/models/backend';
 import { createReducer, on } from '@ngrx/store';
 import {
   createUser,
@@ -21,6 +20,7 @@ import {
   updateUserError,
   updateUserSuccess,
 } from './user.actions';
+import { User } from '../../../core/_models/backend/user/user.model';
 
 export interface UserState {
   entity: User | null;

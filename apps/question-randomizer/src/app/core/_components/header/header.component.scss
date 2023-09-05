@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigation {
+  margin-top: 0.2rem;
+  .app-a:not(:last-of-type) {
+    margin-right: 3rem;
+  }
+}

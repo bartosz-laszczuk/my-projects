@@ -2,12 +2,6 @@ import { Inject, Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import {
-  AppConfig,
-  APP_CONFIG,
-} from '@my-projects-nx/question-randomizer/app-config';
-import { User } from '@my-projects-nx/question-randomizer/shared/util/models/backend';
-import { NotificationService } from '@my-projects-nx/question-randomizer/shared/util/notification';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { serverTimestamp } from 'firebase/firestore';
 
@@ -42,6 +36,9 @@ import {
   updateUserError,
   updateUserSuccess,
 } from './user.actions';
+import { NotificationService } from '../../../core/_services/notification/notification.service';
+import { User } from '../../../core/_models/backend/user/user.model';
+import { environment } from 'apps/question-randomizer/src/environments/environment';
 
 @Injectable()
 export class UserEffects {
@@ -50,8 +47,7 @@ export class UserEffects {
     private afAuth: AngularFireAuth,
     private _db: AngularFirestore,
     private router: Router,
-    private notification: NotificationService,
-    @Inject(APP_CONFIG) private appConfig: AppConfig
+    private notification: NotificationService
   ) {}
 
   initUser$ = createEffect(() =>
@@ -128,9 +124,7 @@ export class UserEffects {
         ).pipe(
           tap(() => {
             this.afAuth.currentUser.then((u) =>
-              u!.sendEmailVerification(
-                this.appConfig.firebase.actionCodeSettings
-              )
+              u!.sendEmailVerification(environment.firebase.actionCodeSettings)
             );
             this.router.navigate(['/auth', 'email-confirm']);
           }),

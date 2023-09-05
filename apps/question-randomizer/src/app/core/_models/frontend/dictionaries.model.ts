@@ -1,4 +1,4 @@
-import { DictionaryItem } from '@question-randomizer/app/core/_models/frontend';
+import { DictionaryItem } from './dictionary-item.model';
 
 export interface Dictionaries {
   roles: DictionaryItem[];

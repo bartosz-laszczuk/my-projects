@@ -1,6 +1,4 @@
 import { FieldValue } from 'firebase/firestore';
-import { Employee } from '../employee.model';
-import { Recruiter } from '../recruiter.model';
 
 export interface User {
   uid: string;
@@ -10,7 +8,7 @@ export interface User {
   country?: string;
   about?: string;
   roleId?: string;
-  role: Employee | Recruiter;
+  role: any;
   created: FieldValue;
   updated?: FieldValue;
 }

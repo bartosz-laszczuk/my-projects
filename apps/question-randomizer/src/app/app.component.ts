@@ -1,4 +1,18 @@
 import { Component } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable, filter, take } from 'rxjs';
+import {
+  getIsAuthorized,
+  getUser,
+  getUserState,
+} from './auth/_store/user/user.selectors';
+import { User } from './core/_models/backend/user/user.model';
+import { NavigationEnd, Router } from '@angular/router';
+import { CommonFacade } from './core/_store/common/common.facade';
+import { MatDialog } from '@angular/material/dialog';
+import { LogoBreakpointsService } from './core/_services/logo-breakpoints.service';
+import { loadDictionaries } from './core/_store/dictionaries/dictionaries.actions';
+import { signOut } from './auth/_store/user/user.actions';
 
 @Component({
   selector: 'my-projects-root',

@@ -4,6 +4,10 @@ import { map, Observable, of, switchMap, take, zip } from 'rxjs';
 import { Dictionaries } from '../_models/frontend/dictionaries.model';
 import { DictionaryItem } from '../_models/frontend';
 import { UserFacade } from '../../auth/_store/user/user.facade';
+import {
+  AngularFirestore,
+  DocumentChangeAction,
+} from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',

@@ -1,0 +1,38 @@
+@use 'mixins';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  overflow: hidden;
+  animation: typing 0.8s steps(40, end);
+  display: block;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-family: 'Lucida Console';
+  display: inline-block;
+
+  &--xxlarge,
+  &--xlarge,
+  &--medium {
+    line-height: 14px;
+    font-size: 14px;
+  }
+
+  &--large {
+    line-height: 12px;
+    font-size: 12px;
+  }
+}
+
+.break {
+  width: 100%;
+  overflow: hidden;
+  &__dots {
+    animation: typing 0.8s steps(40, end);
+  }
+}
