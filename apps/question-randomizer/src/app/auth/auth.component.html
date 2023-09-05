@@ -1,0 +1,15 @@
+<router-outlet></router-outlet>
+<div class="auth-footer">
+  <ng-container [ngTemplateOutlet]="break"></ng-container>
+  <span>Copyright &copy; 2022 Bartosz Łaszczuk</span>
+  <!-- <b class="copyright">&copy; 2015 FoodPlease - CodeKitchen Bartosz Łaszczuk </b
+  >All rights reserved. -->
+  <ng-container [ngTemplateOutlet]="break"></ng-container>
+</div>
+<ng-template #break>
+  <div class="break">
+    <span class="break__minuses"
+      >------------------------------------------------------------------------------------------------------------</span
+    >
+  </div>
+</ng-template>

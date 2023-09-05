@@ -1,0 +1,14 @@
+<content><ng-content></ng-content></content>
+<footer>
+  <my-projects-nx-shared-ui-buttons-button
+    [stretch]="true"
+    (click)="close.emit()"
+    >{{ closeText }}</my-projects-nx-shared-ui-buttons-button
+  >
+  <div class="break"></div>
+  <my-projects-nx-shared-ui-buttons-button
+    [stretch]="true"
+    (click)="confirm.emit()"
+    >{{ confirmText }}</my-projects-nx-shared-ui-buttons-button
+  >
+</footer>

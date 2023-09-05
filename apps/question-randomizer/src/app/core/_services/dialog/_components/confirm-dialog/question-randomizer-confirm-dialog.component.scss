@@ -1,0 +1,20 @@
+@use 'colors';
+
+content {
+  display: block;
+  padding: 1rem;
+}
+
+footer {
+  display: flex;
+  border-top: 2px colors.$primary solid;
+}
+
+my-projects-nx-shared-ui-buttons-button {
+  flex-grow: 1;
+}
+
+.break {
+  width: 2px;
+  background-color: colors.$primary;
+}

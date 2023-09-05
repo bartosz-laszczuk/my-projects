@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent],
   imports: [CoreModule],
   bootstrap: [AppComponent],
 })

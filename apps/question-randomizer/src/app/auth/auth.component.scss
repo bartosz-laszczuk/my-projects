@@ -1,0 +1,30 @@
+:host {
+  // display: flex;
+  // flex-direction: column;
+  // height: calc(100% - 20rem);
+  // margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  // grid-template-columns: max-content;
+  // grid-template-rows: 1fr;
+}
+
+.auth-footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  align-items: center;
+  white-space: nowrap;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.break {
+  width: 100%;
+  &__dots {
+    animation: typing 0.8s steps(40, end);
+  }
+}

@@ -1,9 +1,9 @@
 export * from './controls.module';
 export * from './input/shared-ui-crt-controls-input.component';
 export * from './select/shared-ui-crt-controls-select.component';
-// export * from './form-field/form-field.module';
-// export * from './password/password.module';
-// export * from './checkboxes/checkboxes.module';
+export * from './form-field/shared-ui-crt-controls-form-field.component';
+export * from './password/shared-ui-crt-controls-password.component';
+export * from './checkboxes/shared-ui-crt-controls-checkboxes.component';
 // export * from './radios/radios.module';
 // export * from './date/date.module';
 // export * from './date-range/date-range.module';
