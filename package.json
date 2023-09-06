@@ -20,6 +20,7 @@
     "@ngrx/store": "^16.2.0",
     "@ngrx/store-devtools": "^16.2.0",
     "@nx/angular": "16.7.4",
+    "moment": "^2.29.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

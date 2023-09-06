@@ -10,11 +10,13 @@ import {
   UrlTree,
   Router,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { filter, map, take, tap } from 'rxjs/operators';
 
 import { Store, select } from '@ngrx/store';
 import { getUserState } from '../../../auth/_store/user/user.selectors';
+import { initUser } from '../../../auth/_store/user/user.actions';
+// import { getUserState } from '../../_state/user/user.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +26,12 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
   private check(): Observable<boolean> {
     return this.store.pipe(select(getUserState)).pipe(
-      filter((state) => !state.isLoading),
+      tap((state) => {
+        if (state.isLoading === null) {
+          this.store.dispatch(initUser());
+        }
+      }),
+      filter((state) => state.isLoading === false),
       take(1),
       tap((state) => {
         if (!state.uid) {

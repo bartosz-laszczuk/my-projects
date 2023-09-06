@@ -1,0 +1,33 @@
+@import 'colors';
+@import 'mixins';
+
+.category-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.left-side-buttons {
+  margin-right: auto;
+}
+
+.progress {
+  display: block;
+  margin-top: 1.2rem;
+  &__bar {
+    display: flex;
+    justify-content: space-between;
+    &--not-filled {
+      color: $primary-dark;
+    }
+  }
+}
+
+.answer {
+  &__text {
+    display: block;
+    height: 26.5rem;
+    @include respond(tab-land) {
+      height: calc(100vh - 60rem);
+    }
+  }
+}

@@ -1,0 +1,102 @@
+<div class="app-page__content">
+  <my-projects-shared-ui-crt-controls-checkboxes
+    class="category-list"
+    [items]="(categoryControlItems$ | async)!"
+    [value]="(selectedCategoryIdListLoaded$ | async)!"
+    (changed)="onCategoryFilterChanged($event)"
+  ></my-projects-shared-ui-crt-controls-checkboxes>
+  <div>
+    <span
+      >.................................................................................................................</span
+    >
+  </div>
+  <my-projects-shared-ui-crt-layout-section
+    *ngIf="progress >= 0"
+    class="progress"
+    [header]="'Progress'"
+  >
+    <div class="progress__bar">
+      <ng-container *ngFor="let n of iterableArray; let i = index">
+        <ng-container *ngIf="isBarFilled(i, progress); else notCompletedBar">
+          <span>█</span>
+        </ng-container>
+      </ng-container>
+      <ng-template #notCompletedBar>
+        <span class="progress__bar--not-filled">▄</span>
+      </ng-template>
+    </div>
+  </my-projects-shared-ui-crt-layout-section>
+
+  <ng-container *ngIf="randomization?.currentQuestion">
+    <br />
+    <my-projects-shared-ui-crt-layout-section [header]="'Question'">
+      <span>{{ randomization?.currentQuestion?.question }}</span>
+    </my-projects-shared-ui-crt-layout-section>
+    <br />
+    <ng-container *ngIf="!randomization?.isAnswerHidden">
+      <my-projects-shared-ui-crt-layout-section
+        class="answer"
+        [header]="'Answer'"
+      >
+        <span class="answer__text" *ngIf="language$ | async as language">{{
+          language === languages.ENGLISH
+            ? randomization?.currentQuestion?.answer
+            : randomization?.currentQuestion?.answerPl
+        }}</span>
+      </my-projects-shared-ui-crt-layout-section>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="randomization?.status === 2">
+    <div
+      style="
+        margin-top: 10rem;
+        margin-left: 26rem;
+        overflow: hidden;
+        animation: typing 0.8s steps(40, end);
+      "
+    >
+      <span
+        style="
+          font-family: 'Lucida Console';
+          line-height: 14px;
+          font-size: 14px;
+          display: inline-block;
+        "
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;▄█▀▀▀█▄█&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;<br />▄██&nbsp;&nbsp;&nbsp;&nbsp;▀█&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;<br />▀███▄&nbsp;&nbsp;&nbsp;▀███&nbsp;&nbsp;▀███&nbsp;&nbsp;▄██▀██&nbsp;▄██▀██&nbsp;&nbsp;▄▄█▀██&nbsp;▄██▀███▄██▀████&nbsp;<br />&nbsp;&nbsp;▀█████▄&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██▀&nbsp;&nbsp;████▀&nbsp;&nbsp;██&nbsp;▄█▀&nbsp;&nbsp;&nbsp;████&nbsp;&nbsp;&nbsp;▀▀██&nbsp;&nbsp;&nbsp;▀▀█&nbsp;<br />▄&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▀██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██▀▀▀▀▀▀▀█████▄▀█████▄▀&nbsp;<br />██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██&nbsp;&nbsp;&nbsp;&nbsp;██&nbsp;██▄&nbsp;&nbsp;&nbsp;&nbsp;▄█▄&nbsp;&nbsp;&nbsp;&nbsp;▄██▄&nbsp;&nbsp;&nbsp;&nbsp;▄█▄&nbsp;&nbsp;&nbsp;███▄&nbsp;&nbsp;&nbsp;██▄&nbsp;<br />█▀█████▀&nbsp;&nbsp;▀████▀███▄█████▀&nbsp;█████▀&nbsp;&nbsp;▀█████▀██████▀██████▀█&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br
+      /></span>
+    </div>
+  </ng-container>
+</div>
+<div class="app-page__footer">
+  <div class="left-side-buttons">
+    <my-projects-shared-ui-crt-buttons-button (click)="onReset()">
+      Reset
+    </my-projects-shared-ui-crt-buttons-button>
+    <my-projects-shared-ui-crt-buttons-button (click)="onChangeLanguage()">
+      Change language
+    </my-projects-shared-ui-crt-buttons-button>
+  </div>
+  <my-projects-shared-ui-crt-buttons-button
+    *ngIf="!!randomization?.currentQuestion"
+    (click)="onShowAnswer()"
+  >
+    <ng-container *ngIf="randomization?.isAnswerHidden === true">
+      Show answer
+    </ng-container>
+    <ng-container *ngIf="randomization?.isAnswerHidden === false">
+      Hide answer
+    </ng-container>
+  </my-projects-shared-ui-crt-buttons-button>
+  <my-projects-shared-ui-crt-buttons-button
+    (click)="onPrevious()"
+    [disabled]="(isPreviousDisabled$ | async)!"
+  >
+    << Previous
+  </my-projects-shared-ui-crt-buttons-button>
+  <my-projects-shared-ui-crt-buttons-button
+    (click)="onRandomize()"
+    [disabled]="(isRandomizeDisabled$ | async)!"
+  >
+    Randomize >>
+  </my-projects-shared-ui-crt-buttons-button>
+</div>

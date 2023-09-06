@@ -1,4 +1,4 @@
-import { FieldValue } from 'firebase/firestore';
+// import { FieldValue } from 'firebase/firestore';
 
 export interface Question {
   id: string;
@@ -7,7 +7,7 @@ export interface Question {
   answerPl: string;
   categoryId: string;
   qualificationId: string;
-  created: FieldValue;
-  updated?: FieldValue;
+  // created: FieldValue;
+  // updated?: FieldValue;
   isActive: boolean;
 }

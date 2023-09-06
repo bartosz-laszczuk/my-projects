@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import {
-  CanActivate,
-  CanActivateChild,
-  CanLoad,
   Route,
   UrlSegment,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
   Router,
+  CanActivate,
+  CanActivateChild,
+  CanLoad,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { filter, map, take, tap } from 'rxjs/operators';
 
 import { Store, select } from '@ngrx/store';
 import { getUserState } from '../../../auth/_store/user/user.selectors';
-// import * as fromRoot from '@app/store';
-// import * as fromUser from '@app/store/user';
+import { initUser } from '../../../auth/_store/user/user.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +25,12 @@ export class UnauthGuard implements CanActivate, CanActivateChild, CanLoad {
 
   private check(): Observable<boolean> {
     return this.store.pipe(select(getUserState)).pipe(
-      filter((state) => !state.isLoading),
+      tap((state) => {
+        if (state.isLoading === null) {
+          this.store.dispatch(initUser());
+        }
+      }),
+      filter((state) => state.isLoading === false),
       take(1),
       tap((state) => {
         if (state.uid) {

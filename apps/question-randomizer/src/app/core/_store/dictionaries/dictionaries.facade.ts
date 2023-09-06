@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { dictionaryItemToControlItem } from '@my-projects-nx/shared/util/utils';
 import { select, Store } from '@ngrx/store';
 import { filter, map, take } from 'rxjs';
 import { getQualifications, getCategories } from './dictionaries.selectors';
+import { dictionaryItemToControlItem } from '../../../shared/utils';
 
 @Injectable({
   providedIn: 'root',

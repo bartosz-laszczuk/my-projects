@@ -19,6 +19,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HeaderComponent } from './_components/header/header.component';
 import { LogoComponent } from './_components/logo/logo.component';
+import { LanguageService } from './_services/language.service';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { AppOverlayContainer } from '../app-overlay-container';
 
 @NgModule({
   declarations: [],
@@ -67,6 +70,10 @@ import { LogoComponent } from './_components/logo/logo.component';
     SharedUiCrtLayoutDisplayComponent,
     BrowserModule,
     HeaderComponent,
+  ],
+  providers: [
+    { provide: OverlayContainer, useClass: AppOverlayContainer },
+    LanguageService,
   ],
 })
 export class CoreModule {}

@@ -4,6 +4,7 @@ export interface Question {
   answer: string;
   answerPl: string;
   categoryId: string;
+  categoryName: string;
   qualificationId: string;
   isActive: boolean;
 }
