@@ -1,0 +1,36 @@
+<div class="app-page__content">
+  <!-- <my-projects-nx-app-generic-table
+    (rowClick)="onRowClick($event)"
+  ></my-projects-nx-app-generic-table> -->
+  <!-- <my-projects-nx-generic-table-backend-operations
+    [data]="(questionListLoaded$ | async)!"
+    [columns]="columnDefs"
+  ></my-projects-nx-generic-table-backend-operations> -->
+  <my-projects-generic-table-material
+    (rowClick)="onRowClick($event)"
+  ></my-projects-generic-table-material>
+</div>
+
+<div class="app-page__footer">
+  <input
+    type="file"
+    #csvReader
+    name="Upload CSV"
+    id="txtFileUpload"
+    (change)="onFileSelected($event)"
+    accept=".csv"
+    hidden
+  />
+  <br />
+  <div class="to-left">
+    <my-projects-shared-ui-crt-buttons-button (click)="onImport()">
+      Import
+    </my-projects-shared-ui-crt-buttons-button>
+    <my-projects-shared-ui-crt-buttons-button (click)="onExport()">
+      Export
+    </my-projects-shared-ui-crt-buttons-button>
+  </div>
+  <my-projects-shared-ui-crt-buttons-button (click)="onAdd()">
+    Add
+  </my-projects-shared-ui-crt-buttons-button>
+</div>

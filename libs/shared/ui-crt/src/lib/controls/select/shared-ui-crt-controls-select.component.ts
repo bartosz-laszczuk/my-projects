@@ -12,7 +12,7 @@ import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { ControlItem, Value } from '../../models/control-item.model';
 
 @Component({
-  selector: 'my-projects-shared-crt-ui-controls-select',
+  selector: 'my-projects-shared-ui-crt-controls-select',
   standalone: true,
   imports: [CommonModule, MatSelectModule],
   templateUrl: './shared-ui-crt-controls-select.component.html',

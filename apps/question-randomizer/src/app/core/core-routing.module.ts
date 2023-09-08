@@ -15,13 +15,13 @@ const routes: Routes = [
         pathMatch: 'full',
         redirectTo: 'randomization',
       },
-      // {
-      //   path: 'questions',
-      //   loadChildren: () =>
-      //     import('../questions/questions.module').then(
-      //       (m) => m.QuestionsModule
-      //     ),
-      // },
+      {
+        path: 'questions',
+        loadChildren: () =>
+          import('../questions/questions.module').then(
+            (m) => m.QuestionsModule
+          ),
+      },
       // {
       //   path: 'demo',
       //   loadChildren: () =>

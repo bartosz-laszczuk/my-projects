@@ -1,0 +1,18 @@
+<div *ngIf="item" class="job">
+  <div class="job__content">
+    {{ item.question }} <br />
+    {{ item.answer }}
+  </div>
+
+  <div class="job__actions">
+    <my-projects-shared-ui-crt-buttons-button id="edit" (click)="onEdit(item)"
+      >Edit</my-projects-shared-ui-crt-buttons-button
+    >
+    <my-projects-shared-ui-crt-buttons-button
+      id="delete"
+      (click)="onDelete($event, item.id)"
+    >
+      Delete
+    </my-projects-shared-ui-crt-buttons-button>
+  </div>
+</div>

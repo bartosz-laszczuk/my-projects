@@ -2,3 +2,8 @@ export * from './lib/buttons';
 export * from './lib/controls';
 export * from './lib/layout';
 export * from './lib/indicators';
+export * from './lib/table/generic-table-material/generic-table-material.module';
+export * from './lib/table/paginator/paginator.module';
+export * from './lib/table/generic-table-material/_models';
+export * from './lib/table/generic-table-material/_services/base-table-settings.service';
+export * from './lib/models/page-event.model';

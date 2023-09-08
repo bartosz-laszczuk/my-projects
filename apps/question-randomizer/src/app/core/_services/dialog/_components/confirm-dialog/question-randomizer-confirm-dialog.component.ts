@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { SharedUiCrtButtonsButtonComponent } from '@my-projects-nx/shared/ui/crt/buttons/button';
+import { SharedUiCrtButtonsButtonComponent } from '@my-projects/shared/ui-crt';
 
 @Component({
   selector: 'my-projects-nx-question-randomizer-confirm-dialog',
@@ -18,6 +18,6 @@ import { SharedUiCrtButtonsButtonComponent } from '@my-projects-nx/shared/ui/crt
 export class QuestionRandomizerConfirmDialogComponent {
   @Input() confirmText = 'Confirm';
   @Input() closeText = 'Close';
-  @Output() confirm = new EventEmitter<void>();
-  @Output() close = new EventEmitter<void>();
+  @Output() confirmDialog = new EventEmitter<void>();
+  @Output() closeDialog = new EventEmitter<void>();
 }
