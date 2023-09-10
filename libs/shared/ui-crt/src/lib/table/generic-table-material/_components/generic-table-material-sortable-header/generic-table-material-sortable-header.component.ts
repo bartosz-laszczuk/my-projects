@@ -10,7 +10,7 @@ import { SortDefinition } from '../../_models/sort-definition.model';
 })
 export class GenericTableMaterialSortableHeaderComponent<T> {
   @Input() public column: IColumn | undefined;
-  @Input() public sortDefinition: SortDefinition<T> | undefined;
+  @Input() public sortDefinition: SortDefinition<T> | null = null;
   @Output() public sort = new EventEmitter<IColumn>();
 
   public sortByColumn(column: IColumn) {

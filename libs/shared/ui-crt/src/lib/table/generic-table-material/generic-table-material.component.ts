@@ -28,7 +28,7 @@ export class GenericTableMaterialComponent<T> implements AfterViewInit {
   @Input() columns: IColumn[] = [];
   @Input() title = '';
   @Input() filterSelected: IFilterSelected[] = [];
-  @Input() sortDefinition: SortDefinition<T> | undefined;
+  @Input() sortDefinition: SortDefinition<T> | null = null;
   @Input() lastColumnAlignLeft = false;
   @Input() trackBy = (index: number, item: T) => item;
 

@@ -10,6 +10,7 @@ import {
 } from '@my-projects/shared/ui-crt';
 import { QuestionItemComponent } from './_components/question-item/question-item.component';
 import { EditQuestionComponent } from './_components/edit-question/edit-question.component';
+import { QuestionsTableModule } from './_components/questions-table/questions-table.module';
 
 @NgModule({
   declarations: [QuestionsComponent],
@@ -21,6 +22,7 @@ import { EditQuestionComponent } from './_components/edit-question/edit-question
     EditQuestionComponent,
     RouterModule.forChild(questionsRoutes),
     GenericTableMaterialModule,
+    QuestionsTableModule,
     // HttpClientModule,
     // QuestionsStateModule,
     // MatDialogModule,

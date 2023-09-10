@@ -35,7 +35,7 @@ export class QuestionsTableSettingsService extends BaseTableSettingsService<Ques
     ];
   }
 
-  protected override results$: Observable<Question[]> =
+  protected override resultsSource$: Observable<Question[]> =
     this.questionsFacade.questionListLoaded$.pipe(shareReplay(1));
 
   public override columns: IColumn[];

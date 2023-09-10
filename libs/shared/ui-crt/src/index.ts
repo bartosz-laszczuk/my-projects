@@ -6,4 +6,5 @@ export * from './lib/table/generic-table-material/generic-table-material.module'
 export * from './lib/table/paginator/paginator.module';
 export * from './lib/table/generic-table-material/_models';
 export * from './lib/table/generic-table-material/_services/base-table-settings.service';
-export * from './lib/models/page-event.model';
+export * from './lib/table/paginator/_models/page-event.model';
+export * from './lib/table/generic-table-material/_models/filter-definitions.model';

@@ -1,14 +1,14 @@
 <my-projects-shared-ui-crt-controls-form-field label="Search">
-  <my-projects-nx-shared-crt-ui-controls-input
+  <my-projects-shared-ui-crt-controls-input
     [(ngModel)]="searchPhrase"
     (changed)="doSearchWithPhrase.next($event.toString())"
-  ></my-projects-nx-shared-crt-ui-controls-input>
+  ></my-projects-shared-ui-crt-controls-input>
 </my-projects-shared-ui-crt-controls-form-field>
-<ng-container *ngIf="tableService.results$ | async as results">
+<ng-container *ngIf="tableService.displayResults$ | async as results">
   <my-projects-paginator
-    [length]="results.length"
-    [pageIndex]="0"
-    [pageSize]="tableService.pageSize"
+    [length]="tableService.tableLength"
+    [pageIndex]="tableService.pageParameters!.index"
+    [pageSize]="tableService.pageParameters!.size"
     (page)="onPageChange($event)"
   ></my-projects-paginator>
   <my-projects-generic-table-material

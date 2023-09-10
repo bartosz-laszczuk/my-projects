@@ -9,6 +9,7 @@
 
   &__header-row {
     height: 2.4rem !important;
+    @include mixins.baseFontSettings();
     text-align: left;
   }
 
