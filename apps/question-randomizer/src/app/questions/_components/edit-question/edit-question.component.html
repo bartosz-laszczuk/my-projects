@@ -1,7 +1,7 @@
-<my-projects-nx-question-randomizer-confirm-dialog
+<my-projects-question-randomizer-confirm-dialog
   [confirmText]="'Save'"
-  (confirm)="onSubmit()"
-  (close)="onClose()"
+  (confirmDialog)="onSubmit()"
+  (closeDialog)="onClose()"
 >
   <div class="form">
     <form [formGroup]="form" novalidate autocomplete="off">
@@ -76,4 +76,4 @@
       </div> -->
     </form>
   </div>
-</my-projects-nx-question-randomizer-confirm-dialog>
+</my-projects-question-randomizer-confirm-dialog>

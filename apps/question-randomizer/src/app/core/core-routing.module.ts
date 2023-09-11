@@ -21,6 +21,7 @@ const routes: Routes = [
           import('../questions/questions.module').then(
             (m) => m.QuestionsModule
           ),
+        canActivate: [AuthGuard],
       },
       // {
       //   path: 'demo',

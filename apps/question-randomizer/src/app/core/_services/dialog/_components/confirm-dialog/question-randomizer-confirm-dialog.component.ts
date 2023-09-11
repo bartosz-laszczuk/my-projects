@@ -8,7 +8,7 @@ import {
 import { SharedUiCrtButtonsButtonComponent } from '@my-projects/shared/ui-crt';
 
 @Component({
-  selector: 'my-projects-nx-question-randomizer-confirm-dialog',
+  selector: 'my-projects-question-randomizer-confirm-dialog',
   standalone: true,
   imports: [SharedUiCrtButtonsButtonComponent],
   templateUrl: './question-randomizer-confirm-dialog.component.html',
