@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard, UnauthGuard } from '../core/_guards';
+import { AuthCanActivate, UnauthGuard } from '../core/_guards';
 import { AuthComponent } from './auth.component';
 
 const routes: Routes = [
@@ -27,7 +27,7 @@ const routes: Routes = [
           import('./email-confirm/email-confirm.component').then(
             (m) => m.EmailConfirmComponent
           ),
-        canActivate: [AuthGuard],
+        canActivate: [AuthCanActivate],
       },
       {
         path: '**',

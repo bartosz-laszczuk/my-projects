@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './_guards';
+import { AuthCanActivate } from './_guards';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
           import('../questions/questions.module').then(
             (m) => m.QuestionsModule
           ),
-        canActivate: [AuthGuard],
+        canActivate: [AuthCanActivate],
       },
       // {
       //   path: 'demo',
@@ -39,7 +39,7 @@ const routes: Routes = [
           import('../randomization/randomization.module').then(
             (m) => m.RandomizationModule
           ),
-        canActivate: [AuthGuard],
+        canActivate: [AuthCanActivate],
       },
       {
         path: 'static',

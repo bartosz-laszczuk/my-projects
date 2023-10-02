@@ -13,6 +13,7 @@ import { getQuestionList } from './list/list.selectors';
 import { QuestionsState } from './questions.reducer';
 import { QuestionMapperService } from '../_services/question-mapper.service';
 import { Question } from '../_models/frontend/question.model';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { QuestionCsvListItem } from '../_models/frontend/question-csv-list-item.model';
 
 @Injectable({
@@ -23,6 +24,10 @@ export class QuestionsFacade {
   questionListLoaded$ = this.questionList$.pipe(
     filter((questionList) => !!questionList),
     map((questionList) => questionList as Question[])
+  );
+  qestionListLoadedSignal = toSignal<Question[], Question[]>(
+    this.questionListLoaded$,
+    { initialValue: [] }
   );
 
   constructor(
