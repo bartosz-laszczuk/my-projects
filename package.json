@@ -2,7 +2,10 @@
   "name": "@my-projects/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "question-randomizer-api:watch": "npm run watch --prefix=servers/question-randomizer-api",
+    "question-randomizer-api:start": "npm run start --prefix=servers/question-randomizer-api"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
