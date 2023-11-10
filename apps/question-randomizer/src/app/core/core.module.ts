@@ -22,6 +22,7 @@ import { LogoComponent } from './_components/logo/logo.component';
 import { LanguageService } from './_services/language.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { AppOverlayContainer } from '../app-overlay-container';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
@@ -64,6 +65,7 @@ import { AppOverlayContainer } from '../app-overlay-container';
     HeaderComponent,
     LogoComponent,
     SharedUiCrtLayoutDisplayComponent,
+    HttpClientModule,
   ],
   exports: [
     RouterModule,

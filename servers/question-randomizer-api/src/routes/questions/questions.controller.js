@@ -1,9 +1,11 @@
+const { questions } = require('../../models/questions.model');
+
 function getQuestion(req, res) {
   return res.status(200).json({});
 }
 
 function getQuestions(req, res) {
-  return res.status(200).json({});
+  return res.status(200).json(questions);
 }
 
 function createQuestion(req, res) {

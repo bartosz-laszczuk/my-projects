@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, filter, take } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import {
   getIsAuthorized,
   getUser,
@@ -19,7 +20,7 @@ import { signOut } from './auth/_store/user/user.actions';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'question-randomizer';
 
   isAuthorized$: Observable<boolean> = this.store.pipe(select(getIsAuthorized));
@@ -31,10 +32,12 @@ export class AppComponent {
     private store: Store,
     private logoBreakpointsService: LogoBreakpointsService,
     private commonFacade: CommonFacade,
+    private http: HttpClient,
     private matDialog: MatDialog // private serviceWorkerConfiguration: ServiceWorkerConfigurationService
   ) {}
 
   ngOnInit() {
+    this.http.get('http://localhost:8000/questions').subscribe();
     // this.isAuthorized$ = this.store.pipe(select(getIsAuthorized));
     // this.user$ = this.store.pipe(select(getUser));
     this.router.events.subscribe((event) => {
