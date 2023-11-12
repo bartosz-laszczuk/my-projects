@@ -37,6 +37,11 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.http
+      .post('http://localhost:8000/questions', {
+        question: 'added question',
+      })
+      .subscribe();
     this.http.get('http://localhost:8000/questions').subscribe();
     // this.isAuthorized$ = this.store.pipe(select(getIsAuthorized));
     // this.user$ = this.store.pipe(select(getUser));

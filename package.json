@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "question-randomizer-api:watch": "npm run watch --prefix=servers/question-randomizer-api",
-    "question-randomizer-api:start": "npm run start --prefix=servers/question-randomizer-api"
+    "question-randomizer-api:start": "npm run start --prefix=servers/question-randomizer-api",
+    "question-randomizer:deploy": "nx build question-randomizer && npm run start --prefix=servers/question-randomizer-api"
   },
   "private": true,
   "dependencies": {

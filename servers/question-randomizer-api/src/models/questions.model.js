@@ -28,7 +28,26 @@ function loadQuestions() {
   });
 }
 
+function existsQuestionWithId(questionId) {
+  // check if the question exists in array
+  return true;
+}
+
+function getQuestions() {
+  return questions;
+}
+
+function createQuestion(question) {
+  questions.push(question);
+}
+
+function deleteQuestion(questionId) {
+  // delete question from array
+}
+
 module.exports = {
-  questions,
+  getQuestions,
   loadQuestions,
+  createQuestion,
+  existsQuestionWithId,
 };
