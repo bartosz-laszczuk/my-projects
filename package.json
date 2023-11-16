@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "question-randomizer-api:watch": "npm run watch --prefix=servers/question-randomizer-api",
-    "question-randomizer-api:start": "npm run start --prefix=servers/question-randomizer-api",
-    "question-randomizer:deploy": "nx build question-randomizer && npm run start --prefix=servers/question-randomizer-api"
+    "question-randomizer-api-express:watch": "npm run watch --prefix=servers/question-randomizer-api/express",
+    "question-randomizer-api-express:start": "npm run start --prefix=servers/question-randomizer-api/express",
+    "question-randomizer:deploy": "nx build question-randomizer && npm run start --prefix=servers/question-randomizer-api/express"
   },
   "private": true,
   "dependencies": {
