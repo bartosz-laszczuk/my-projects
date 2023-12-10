@@ -1,5 +1,5 @@
 {
-  "name": "question-randomizer-api",
+  "name": "question-randomizer-api-express",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
