@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { parse } = require('csv-parse');
-
-questions = [];
+const questions = require('./questions.mongo');
 
 function loadQuestions() {
   const filePath = path.join(
@@ -15,14 +14,15 @@ function loadQuestions() {
   return new Promise((resolve, reject) => {
     fs.createReadStream(filePath)
       .pipe(parse({ columns: true, delimiter: ';', relax_quotes: true }))
-      .on('data', (data) => {
-        questions.push(data);
+      .on('data', async (data) => {
+        saveQuestion(data);
       })
       .on('error', (err) => {
         reject(err);
       })
-      .on('end', () => {
-        console.log('Found questions:', questions.length);
+      .on('end', async () => {
+        const countQuestionsFound = (await getQuestions()).length;
+        console.log('Found questions:', countQuestionsFound);
         resolve();
       });
   });
@@ -33,8 +33,8 @@ function existsQuestionWithId(questionId) {
   return true;
 }
 
-function getQuestions() {
-  return questions;
+async function getQuestions() {
+  return await questions.find({});
 }
 
 function createQuestion(question) {
@@ -43,6 +43,25 @@ function createQuestion(question) {
 
 function deleteQuestion(questionId) {
   // delete question from array
+}
+
+async function saveQuestion(question) {
+  try {
+    await questions.updateOne(
+      { question: question.Question },
+      {
+        question: question.Question,
+        answer: question.Answer,
+        answerPl: question.AnswerPl,
+        category: question.Type,
+        qualification: question.qualification,
+        isActive: question.IsActive,
+      },
+      { upsert: true }
+    );
+  } catch (err) {
+    console.error(`Could not save planet ${err}`);
+  }
 }
 
 module.exports = {

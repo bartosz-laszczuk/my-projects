@@ -4,8 +4,8 @@ function getQuestion(req, res) {
   return res.status(200).json({});
 }
 
-function getQuestions(req, res) {
-  return res.status(200).json(questionsModel.getQuestions());
+async function getQuestions(req, res) {
+  return res.status(200).json(await questionsModel.getQuestions());
 }
 
 function createQuestion(req, res) {
