@@ -10,7 +10,7 @@ async function getQuestions(req, res) {
 
 function createQuestion(req, res) {
   const question = req.body;
-
+  // we need to iterate through all required properties
   if (!question.answer) {
     return res
       .status(400)
@@ -30,14 +30,19 @@ function updateQuestion(req, res) {
   return res.status(200).json({});
 }
 
-function deleteQuestion(req, res) {
+async function deleteQuestion(req, res) {
   const questionId = req.params.id;
 
-  if (questionsModel.existsQuestionWithId(questionId)) {
+  if (!questionId.match(/^[0-9a-fA-F]{24}$/)) {
+    return res.status(400).json({ error: 'Invalid id' });
+  }
+
+  const existsQuestion = await questionsModel.existsQuestionWithId(questionId);
+  if (!existsQuestion) {
     return res.status(404).json({ error: 'Question not found' });
   }
 
-  deleteQuestion(questionId);
+  await questionsModel.deleteQuestionById(questionId);
 
   return res.status(200).json({});
 }

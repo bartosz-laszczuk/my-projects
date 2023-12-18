@@ -28,26 +28,27 @@ function loadQuestions() {
   });
 }
 
-function existsQuestionWithId(questionId) {
-  // check if the question exists in array
-  return true;
+async function existsQuestionWithId(questionId) {
+  return !!(await questions.findOne({ _id: questionId }));
 }
 
 async function getQuestions() {
   return await questions.find({});
 }
 
-function createQuestion(question) {
-  questions.push(question);
+async function createQuestion(question) {
+  await questions.findOneAndUpdate({ question: question.question }, question, {
+    upsert: true,
+  });
 }
 
-function deleteQuestion(questionId) {
-  // delete question from array
+async function deleteQuestionById(questionId) {
+  return await questions.findOneAndDelete({ _id: questionId });
 }
 
 async function saveQuestion(question) {
   try {
-    await questions.updateOne(
+    await questions.findOneAndUpdate(
       { question: question.Question },
       {
         question: question.Question,
@@ -69,4 +70,5 @@ module.exports = {
   loadQuestions,
   createQuestion,
   existsQuestionWithId,
+  deleteQuestionById,
 };
