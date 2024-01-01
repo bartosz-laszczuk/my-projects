@@ -32,19 +32,12 @@ export class AppComponent implements OnInit {
     private store: Store,
     private logoBreakpointsService: LogoBreakpointsService,
     private commonFacade: CommonFacade,
-    private http: HttpClient,
     private matDialog: MatDialog // private serviceWorkerConfiguration: ServiceWorkerConfigurationService
   ) {}
 
   ngOnInit() {
-    this.http
-      .post('http://localhost:8000/questions', {
-        question: 'added question',
-      })
-      .subscribe();
-    this.http.get('http://localhost:8000/questions').subscribe();
-    // this.isAuthorized$ = this.store.pipe(select(getIsAuthorized));
-    // this.user$ = this.store.pipe(select(getUser));
+    this.isAuthorized$ = this.store.pipe(select(getIsAuthorized));
+    this.user$ = this.store.pipe(select(getUser));
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.matDialog.closeAll();

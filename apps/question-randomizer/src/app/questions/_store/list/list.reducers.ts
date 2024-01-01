@@ -19,13 +19,13 @@ import {
 import { Question } from '../../_models/backend/question.model';
 
 export interface ListState {
-  entities: Question[];
+  entities: Question[] | null;
   isLoading: boolean | null;
   error: string | null;
 }
 
 export const initialState: ListState = {
-  entities: [],
+  entities: null,
   isLoading: null,
   error: null,
 };
