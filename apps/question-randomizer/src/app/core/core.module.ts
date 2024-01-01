@@ -42,7 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
-    }),
+    connectInZone: true}),
     NotificationModule.forRoot(),
     EffectsModule.forRoot(),
     // StoreRouterConnectingModule.forRoot(),
