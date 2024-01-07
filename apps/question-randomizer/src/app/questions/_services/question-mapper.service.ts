@@ -14,6 +14,7 @@ export class QuestionMapperService {
     return {
       question: question.question,
       answer: question.answer,
+      answerPl: question.answerPl,
       categoryId: question.categoryId,
       qualificationId: question.qualificationId,
       isActive: question.isActive,
