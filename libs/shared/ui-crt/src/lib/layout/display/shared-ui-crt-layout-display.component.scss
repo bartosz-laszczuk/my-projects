@@ -57,10 +57,12 @@
     }
     .wrapper {
       @include mixins.fill();
-      animation: pulse 5s linear infinite;
       z-index: 30;
-      transform-origin: 50% 50%;
-      transform: skewX(0.5deg);
+      &--animations {
+        animation: pulse 5s linear infinite;
+        transform-origin: 50% 50%;
+        transform: skewX(0.5deg);
+      }
       &::before {
         @include mixins.fill();
 
@@ -85,6 +87,8 @@
           rgba(colors.$gradient-inner, 0) 100%
         );
         pointer-events: none;
+      }
+      &--animations::after {
         animation: glow 2s linear infinite;
       }
       .interlace {
@@ -117,7 +121,10 @@
         z-index: 40;
         border-radius: calc(colors.$base-unit / 2);
         background: colors.$envelope-background;
-        animation: skew 5s linear infinite;
+
+        &--animations {
+          animation: skew 5s linear infinite;
+        }
 
         .terminal {
           position: relative;
@@ -137,9 +144,11 @@
           text-shadow: 0 0 2px colors.$output-text-shadow;
           // font-family: fonts.$base-font-family;
           font-size: inherit;
-          animation: blur 5s linear infinite;
           line-height: fonts.$base-line-height;
           white-space: pre-wrap;
+          &--animations {
+            animation: blur 5s linear infinite;
+          }
         }
       }
     }

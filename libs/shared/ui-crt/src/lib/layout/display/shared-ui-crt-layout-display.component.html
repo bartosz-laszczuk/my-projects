@@ -1,10 +1,19 @@
 <div class="crt">
   <div class="screen">
-    <div class="wrapper">
+    <div
+      class="wrapper"
+      [class.wrapper--animations]="animationsEnabled$ | async"
+    >
       <div class="interlace"></div>
-      <div class="scanline"></div>
-      <div class="envelope">
-        <div class="terminal">
+      <div *ngIf="animationsEnabled$ | async" class="scanline"></div>
+      <div
+        class="envelope"
+        [class.envelope--animations]="animationsEnabled$ | async"
+      >
+        <div
+          class="terminal"
+          [class.terminal--animations]="animationsEnabled$ | async"
+        >
           <ng-content></ng-content>
         </div>
       </div>
