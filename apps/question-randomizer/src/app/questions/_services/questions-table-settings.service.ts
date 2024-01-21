@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
 import { Question } from '../_models/frontend/question.model';
 import { QuestionsFacade } from '../_store/questions.facade';
-import { LanguageService } from '../../core/_services/language.service';
+import { SettingsService } from '../../settings/_services/settings.service';
 import { Language } from '../../core/_enums/language.enum';
 import { BaseTableSettingsService, IColumn } from '@my-projects/shared/ui-crt';
 
@@ -10,10 +10,10 @@ import { BaseTableSettingsService, IColumn } from '@my-projects/shared/ui-crt';
 export class QuestionsTableSettingsService extends BaseTableSettingsService<Question> {
   constructor(
     private questionsFacade: QuestionsFacade,
-    _languageService: LanguageService
+    _settingsService: SettingsService
   ) {
     super();
-    const language = _languageService.language$.value;
+    const language = _settingsService.language$.value;
     this.columns = [
       {
         displayName: 'Question',

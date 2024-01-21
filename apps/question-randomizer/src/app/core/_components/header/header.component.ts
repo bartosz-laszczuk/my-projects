@@ -11,6 +11,7 @@ import { LogoBreakpoint } from '../../_services/logo-breakpoints.service';
 import { User } from '../../_models/backend/user/user.model';
 import { LogoComponent } from '../logo/logo.component';
 import { DialogService } from '../../_services/dialog/dialog.service';
+import { SettingsComponent } from '../../../settings/settings.component';
 
 @Component({
   selector: 'my-projects-header',
@@ -26,7 +27,7 @@ export class HeaderComponent {
   @Input() isAuthorized = false;
   @Output() signOut = new EventEmitter<void>();
 
-  public constructor(private router: Router, private _dialog: DialogService) {}
+  public constructor(private router: Router) {}
 
   public onSignOut(): void {
     this.signOut.emit();
@@ -35,12 +36,5 @@ export class HeaderComponent {
   public onProfileNavigate(): void {
     const path = this.user ? this.user.uid : 'new';
     this.router.navigate(['/profile', path]);
-  }
-
-  public onSettings() {
-    // this._dialog.open(EditQuestionComponent, {
-    //   width: '650px',
-    //   // height: '420px',
-    // });
   }
 }

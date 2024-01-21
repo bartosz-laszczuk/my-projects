@@ -19,7 +19,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HeaderComponent } from './_components/header/header.component';
 import { LogoComponent } from './_components/logo/logo.component';
-import { LanguageService } from './_services/language.service';
+import { SettingsService } from '../settings/_services/settings.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { AppOverlayContainer } from '../app-overlay-container';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
-    connectInZone: true}),
+      connectInZone: true,
+    }),
     NotificationModule.forRoot(),
     EffectsModule.forRoot(),
     // StoreRouterConnectingModule.forRoot(),
@@ -75,7 +76,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     { provide: OverlayContainer, useClass: AppOverlayContainer },
-    LanguageService,
+    SettingsService,
   ],
 })
 export class CoreModule {}

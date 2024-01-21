@@ -63,17 +63,14 @@
         [control]="form.controls['isActive']"
         [isValidationHidden]="true"
       >
-        <label class="container">
+        <my-projects-shared-ui-crt-controls-checkbox
+          formControlName="isActive"
+        />
+        <!-- <label class="container">
           <input formControlName="isActive" type="checkbox" />
           <span class="checkmark"></span>
-        </label>
+        </label> -->
       </my-projects-shared-ui-crt-controls-form-field>
-
-      <!-- <div class="form__actions">
-        <my-projects-nx-shared-ui-buttons-button type="submit"
-          >Save</my-projects-nx-shared-ui-buttons-button
-        >
-      </div> -->
     </form>
   </div>
 </my-projects-question-randomizer-confirm-dialog>

@@ -13,6 +13,7 @@ import {
 } from '@angular/material/dialog';
 import {
   SharedUiCrtButtonsButtonComponent,
+  SharedUiCrtControlsCheckboxComponent,
   SharedUiCrtControlsFormFieldComponent,
   SharedUiCrtControlsInputComponent,
   SharedUiCrtControlsSelectComponent,
@@ -35,6 +36,7 @@ import { Question } from '../../_models/frontend/question.model';
     SharedUiCrtControlsSelectComponent,
     SharedUiCrtControlsInputComponent,
     QuestionRandomizerConfirmDialogComponent,
+    SharedUiCrtControlsCheckboxComponent,
   ],
   templateUrl: './edit-question.component.html',
   styleUrls: ['./edit-question.component.scss'],

@@ -12,7 +12,7 @@ import { DictionariesFacade } from '../core/_store/dictionaries/dictionaries.fac
 import { SelectedCategoryListFacade } from './_store/selected-category-list/selected-category-list.facade';
 import { RandomizationService } from './_services/randomization.service';
 import { UsedQuestionListFacade } from './_store/used-question-list/used-question-list.facade';
-import { LanguageService } from '../core/_services/language.service';
+import { SettingsService } from '../settings/_services/settings.service';
 import { RandomizationStatus } from './_enums/randomization-status.enum';
 import { QuestionsFacade } from '../questions/_store/questions.facade';
 
@@ -41,7 +41,7 @@ export class RandomizationComponent {
     this._randomizationService.unusedQuestionsWithCategory$.pipe(
       map((questions) => questions.length === 0)
     );
-  language$: Observable<Language> = this._languageService.language$;
+  language$: Observable<Language> = this._settingsService.language$;
   languages = Language;
   constructor(
     private _randomizationFacade: RandomizationFacade,
@@ -50,7 +50,7 @@ export class RandomizationComponent {
     private _selectedCategoryListFacade: SelectedCategoryListFacade,
     private _randomizationService: RandomizationService,
     private _usedQuestionListFacade: UsedQuestionListFacade,
-    private _languageService: LanguageService,
+    private _settingsService: SettingsService,
     private _cdr: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
@@ -93,7 +93,7 @@ export class RandomizationComponent {
     this.language$
       .pipe(take(1))
       .subscribe((language) =>
-        this._languageService.setLanguage(
+        this._settingsService.setLanguage(
           language === Language.ENGLISH ? Language.POLISH : Language.ENGLISH
         )
       );

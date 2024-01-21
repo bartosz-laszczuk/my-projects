@@ -4,6 +4,7 @@ export * from './select/shared-ui-crt-controls-select.component';
 export * from './form-field/shared-ui-crt-controls-form-field.component';
 export * from './password/shared-ui-crt-controls-password.component';
 export * from './checkboxes/shared-ui-crt-controls-checkboxes.component';
+export * from './checkbox/shared-ui-crt-controls-checkbox.component';
 // export * from './radios/radios.module';
 // export * from './date/date.module';
 // export * from './date-range/date-range.module';

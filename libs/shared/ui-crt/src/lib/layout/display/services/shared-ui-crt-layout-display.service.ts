@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class SharedUiCrtLayoutDisplayService {
-  private _animationsEnabledKey: string = 'animationsEnabled';
+  private readonly _animationsEnabledKey: string = 'animationsEnabled';
 
   public animationsEnabled$ = new BehaviorSubject<boolean>(false);
 
   constructor() {
-    const animationsEnabled = (localStorage.getItem(
-      this._animationsEnabledKey
-    ) ?? true) as boolean;
-
+    const animationsEnabled =
+      (localStorage.getItem(this._animationsEnabledKey) ?? 'true') === 'true';
     this.animationsEnabled$.next(animationsEnabled);
   }
 
