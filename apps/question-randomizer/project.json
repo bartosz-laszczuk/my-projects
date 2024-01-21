@@ -8,16 +8,21 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/question-randomizer",
         "index": "apps/question-randomizer/src/index.html",
         "main": "apps/question-randomizer/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/question-randomizer/tsconfig.app.json",
         "assets": [
           "apps/question-randomizer/src/favicon.ico",
-          "apps/question-randomizer/src/assets"
+          "apps/question-randomizer/src/assets",
+          "apps/question-randomizer/src/manifest.webmanifest"
         ],
         "styles": [
           "libs/shared/ui-crt/src/styles/styles.scss",
@@ -25,8 +30,12 @@
         ],
         "scripts": [],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/shared/ui-crt/src/styles/variables"]
-        }
+          "includePaths": [
+            "libs/shared/ui-crt/src/styles/variables"
+          ]
+        },
+        "serviceWorker": true,
+        "ngswConfigPath": "apps/question-randomizer/ngsw-config.json"
       },
       "configurations": {
         "production": {
@@ -75,11 +84,15 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "outputs": [
+        "{options.outputFile}"
+      ]
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/question-randomizer/jest.config.ts"
       }
