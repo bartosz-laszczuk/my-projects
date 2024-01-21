@@ -3,27 +3,20 @@
   [formGroup]="settingsForm"
 >
   <div class="app-page__content">
-    <!-- <my-projects-shared-ui-crt-controls-form-field
-        label="Email"
-        [required]="true"
-        [isInline]="false"
-      >
-        <my-projects-shared-ui-crt-controls-input
-          formControlName="language"
-        ></my-projects-shared-ui-crt-controls-input>
-      </my-projects-shared-ui-crt-controls-form-field> -->
-
+    <my-projects-shared-ui-crt-controls-form-field label="Answers language">
+      <my-projects-shared-ui-crt-controls-radios
+        [items]="languages"
+        formControlName="language"
+      />
+    </my-projects-shared-ui-crt-controls-form-field>
+    <br />
     <my-projects-shared-ui-crt-controls-form-field
       label="Interview Mode"
       [isInline]="false"
     >
       <my-projects-shared-ui-crt-controls-checkbox
         formControlName="interviewMode"
-      ></my-projects-shared-ui-crt-controls-checkbox>
-      <!-- <label class="container">
-        <input formControlName="interviewMode" type="checkbox" />
-        <span class="checkmark"></span>
-      </label> -->
+      />
     </my-projects-shared-ui-crt-controls-form-field>
     <br />
     <my-projects-shared-ui-crt-controls-form-field
@@ -32,7 +25,7 @@
     >
       <my-projects-shared-ui-crt-controls-checkbox
         formControlName="animationsEnabled"
-      ></my-projects-shared-ui-crt-controls-checkbox>
+      />
     </my-projects-shared-ui-crt-controls-form-field>
   </div>
 </form>

@@ -1,11 +1,21 @@
-@import "colors";
+@import 'colors';
+
+.radios {
+  display: flex;
+}
 
 .radio {
   display: block;
   position: relative;
-  text-indent: 30px;
-  margin: 8px 0;
-  padding: 0 20px 0 0;
+  // text-indent: 30px;
+  // margin: 8px 0;
+  // padding: 0 20px 0 0;
+  color: $primary-dark;
+
+  &__checked {
+    color: $primary;
+  }
+  transition: color 0.1s ease;
 
   cursor: pointer;
   -webkit-user-select: none;
@@ -47,7 +57,7 @@
     background-color: #eee;
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       display: none;
     }

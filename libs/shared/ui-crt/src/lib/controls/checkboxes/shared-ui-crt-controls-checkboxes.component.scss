@@ -12,6 +12,7 @@
   &__checked {
     color: $primary;
   }
+  transition: color 0.1s ease;
 
   cursor: pointer;
   -webkit-user-select: none;
