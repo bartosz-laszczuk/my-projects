@@ -38,7 +38,11 @@
         </th>
       </ng-container>
 
-      <td *matCellDef="let element; let i = index" mat-cell>
+      <td
+        [class.text-wrap]="cellTextWrap"
+        *matCellDef="let element; let i = index"
+        mat-cell
+      >
         <ng-container
           *ngTemplateOutlet="
             columnTemplates[col.propertyName]?.templateRef || defaultCell;

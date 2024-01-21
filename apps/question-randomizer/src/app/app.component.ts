@@ -14,6 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LogoBreakpointsService } from './core/_services/logo-breakpoints.service';
 import { loadDictionaries } from './core/_store/dictionaries/dictionaries.actions';
 import { signOut } from './auth/_store/user/user.actions';
+import { SettingsService } from './settings/_services/settings.service';
 
 @Component({
   selector: 'my-projects-root',
@@ -32,7 +33,8 @@ export class AppComponent implements OnInit {
     private store: Store,
     private logoBreakpointsService: LogoBreakpointsService,
     private commonFacade: CommonFacade,
-    private matDialog: MatDialog // private serviceWorkerConfiguration: ServiceWorkerConfigurationService
+    private matDialog: MatDialog,
+    public settingsService: SettingsService // private serviceWorkerConfiguration: ServiceWorkerConfigurationService
   ) {}
 
   ngOnInit() {
@@ -62,6 +64,8 @@ export class AppComponent implements OnInit {
       .subscribe(() => {
         this.store.dispatch(loadDictionaries());
       });
+
+    this.settingsService.setGlobalInterviewModeStyles();
 
     // this.serviceWorkerConfiguration.init();
   }

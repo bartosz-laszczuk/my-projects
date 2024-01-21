@@ -25,6 +25,9 @@
   &__content {
     height: calc(100% - 18rem);
     overflow: hidden;
+    &--interview-mode {
+      height: calc(100% - 8rem);
+    }
   }
 
   &__footer {

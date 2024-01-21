@@ -6,6 +6,7 @@ import { QuestionsFacade } from './_store/questions.facade';
 import { EditQuestionComponent } from './_components/edit-question/edit-question.component';
 import { Question } from './_models/frontend/question.model';
 import { QuestionCsvListItem } from './_models/frontend/question-csv-list-item.model';
+import { SettingsService } from '../settings/_services/settings.service';
 
 @Component({
   selector: 'my-projects-questions',
@@ -20,7 +21,8 @@ export class QuestionsComponent implements OnInit {
   constructor(
     // private _dialog: MatDialog,
     private _dialog: DialogService,
-    public questionsFacade: QuestionsFacade
+    public questionsFacade: QuestionsFacade,
+    public settingsService: SettingsService
   ) {}
 
   ngOnInit() {

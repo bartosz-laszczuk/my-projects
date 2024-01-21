@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   Output,
@@ -13,6 +12,7 @@ import {
   IColumn,
   PageEvent,
 } from '@my-projects/shared/ui-crt';
+import { SettingsService } from '../../../settings/_services/settings.service';
 
 @Component({
   selector: 'my-projects-questions-table',
@@ -24,8 +24,8 @@ import {
 export class QuestionsTableComponent {
   @Output() rowClick = new EventEmitter<Question>();
   constructor(
-    private cdr: ChangeDetectorRef,
-    public tableService: QuestionsTableSettingsService
+    public tableService: QuestionsTableSettingsService,
+    public settingsService: SettingsService
   ) {
     this.tableService.init();
   }

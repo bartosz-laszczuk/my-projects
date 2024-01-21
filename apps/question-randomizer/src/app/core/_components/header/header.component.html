@@ -1,4 +1,8 @@
-<my-projects-logo *ngIf="breakpoint" [breakpoint]="breakpoint">
+<my-projects-logo
+  *ngIf="breakpoint"
+  [breakpoint]="breakpoint"
+  [interviewMode]="interviewMode"
+>
   <nav class="navigation">
     <ng-container *ngIf="isAuthorized === false">
       <a

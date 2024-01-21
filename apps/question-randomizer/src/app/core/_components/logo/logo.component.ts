@@ -18,6 +18,7 @@ import { LogoBreakpoint } from '../../_services/logo-breakpoints.service';
 })
 export class LogoComponent {
   @Input() breakpoint: LogoBreakpoint | null = null;
+  @Input() interviewMode: boolean = false;
   constructor(private cdr: ChangeDetectorRef) {}
 
   logoBreakpointEnum = LogoBreakpoint;

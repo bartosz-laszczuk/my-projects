@@ -3,6 +3,7 @@
     <my-projects-header
       [isAuthorized]="(isAuthorized$ | async)!"
       [user]="user$ | async"
+      [interviewMode]="(settingsService.interviewMode$ | async)!"
       (signOut)="onSignOut()"
       class="app-page__header"
       [breakpoint]="breakpoint$ | async"

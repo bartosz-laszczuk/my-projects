@@ -25,6 +25,7 @@ export class HeaderComponent {
   @Input() breakpoint: LogoBreakpoint | null = null;
   @Input() user: User | null = null;
   @Input() isAuthorized = false;
+  @Input() interviewMode = false;
   @Output() signOut = new EventEmitter<void>();
 
   public constructor(private router: Router) {}

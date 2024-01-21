@@ -16,6 +16,7 @@
     [data]="results"
     [columns]="tableService.columns"
     [sortDefinition]="tableService.sortDefinition"
+    [cellTextWrap]="(settingsService.interviewMode$ | async)!"
     (sort)="onSort($event)"
     (rowClick)="onRowClick($event)"
   ></my-projects-generic-table-material>

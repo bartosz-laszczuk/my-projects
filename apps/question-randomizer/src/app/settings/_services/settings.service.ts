@@ -17,7 +17,7 @@ export class SettingsService {
     this.language$.next(language);
 
     const interviewMode =
-      (localStorage.getItem(this._interviewModeKey) ?? 'true') === 'true';
+      (localStorage.getItem(this._interviewModeKey) ?? 'false') === 'true';
     this.interviewMode$.next(interviewMode);
   }
 
@@ -29,5 +29,12 @@ export class SettingsService {
   public setInterviewMode(interviewMode: boolean) {
     localStorage.setItem(this._interviewModeKey, `${interviewMode}`);
     this.interviewMode$.next(interviewMode);
+  }
+
+  public setGlobalInterviewModeStyles() {
+    this.interviewMode$.subscribe((interviewMode) => {
+      const interlace = document.querySelector('.interlace') as HTMLElement;
+      interlace.style.display = interviewMode ? 'none' : 'block';
+    });
   }
 }

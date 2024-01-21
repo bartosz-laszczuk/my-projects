@@ -1,4 +1,9 @@
-<div class="app-page__content">
+<div
+  class="app-page__content"
+  [class.app-page__content--interview-mode]="
+    settingsService.interviewMode$ | async
+  "
+>
   <!-- <my-projects-nx-app-generic-table
     (rowClick)="onRowClick($event)"
   ></my-projects-nx-app-generic-table> -->

@@ -32,6 +32,8 @@ export class GenericTableMaterialComponent<T> implements AfterViewInit {
   @Input() lastColumnAlignLeft = false;
   @Input() trackBy = (index: number, item: T) => item;
 
+  @Input() cellTextWrap = false;
+
   @Output() sort = new EventEmitter<IColumn>();
   @Output() menuCloseEv: EventEmitter<string> = new EventEmitter<string>();
   @Output() rowClick = new EventEmitter<T>();

@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!interviewMode">
   <ng-container *ngIf="breakpoint" [ngSwitch]="breakpoint">
     <ng-container
       *ngSwitchCase="logoBreakpointEnum.XLarge"
